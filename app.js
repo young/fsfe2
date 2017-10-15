@@ -16,11 +16,15 @@ app.get('/', function(req, res) {
   res.sendFile('index.html', {root: __dirname});
 });
 
+app.get('/cats', function(req, res) {
+  res.sendFile('cats.html', {root: __dirname});
+});
+
 app.get('/slowfile', function(req, res) {
   setTimeout(() => {
     res.sendFile('index.html', {root: __dirname});
 
-  }, 15 * 1000);
+  }, 6 * 1000);
 });
 
 /** END ROUTES **/

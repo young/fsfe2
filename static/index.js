@@ -4,7 +4,8 @@
 /** WEB SOCKET STUFF */
 let ws;
 try {
-  ws = new WebSocket(`ws://localhost:3001`);
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${window.location.host}`);
 } catch(e) {
   //
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 
-/** WEB SOCKET STUFF */
+/** WEB SOCKET */
 let ws;
 try {
   const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
@@ -48,4 +48,4 @@ if (ws) {
       () => { console.log('Done');}
     );
 }
-/** END WEB SOCKET STUFF */
+/** END WEB SOCKET */

@@ -49,3 +49,21 @@ if (ws) {
     );
 }
 /** END WEB SOCKET */
+
+/** SMOOTHIE */
+
+const smoothie = new SmoothieChart();
+smoothie.streamTo(document.getElementById('load-canvas'), 1200);
+
+const line1 = new TimeSeries();
+const line2 = new TimeSeries();
+smoothie.addTimeSeries(line1,
+  { strokeStyle:'rgb(0, 255, 0)', fillStyle:'rgba(0, 255, 0, 0.4)', lineWidth:3 });
+
+setInterval(function() {
+  line1.append(new Date().getTime(), Math.random());
+  line2.append(new Date().getTime(), Math.random());
+}, 1000);
+
+/** END SMOOTHIE */
+

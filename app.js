@@ -26,6 +26,7 @@ app.get('/cats', function(req, res) {
   res.sendFile('cats.html', {root: __dirname});
 });
 
+// Example of a slow request
 app.get('/slowfile', function(req, res) {
   setTimeout(() => {
     res.sendFile('index.html', {root: __dirname});
@@ -66,13 +67,14 @@ wss.on('connection', function connection(ws) {
  */
 function getServerLoad() {
   return setInterval(() => {
+    // Execute bash script
     const loadScript = exec(`./proc.sh`);
 
     loadScript.stdout.on('data', function(data) {
       wss.broadcast(JSON.stringify({name: 'load', data}));
     });
 
-  }, 4 * 1000);
+  }, 2 * 1000);
 }
 
 /**
